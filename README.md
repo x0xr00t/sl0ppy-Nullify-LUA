@@ -11,4 +11,5 @@ Sl0ppyr00t-Nullify-LUA
 
 # Legal disclaimer
 I am not responcible for u, using it on non authorized systems
-~x0xr00t~
+
+# ~x0xr00t~

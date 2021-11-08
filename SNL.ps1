@@ -7,7 +7,7 @@
 
 
 Write-Host "00000000000000000000000000000000000"
-Write-Host "0 Sl0ppyR00t LUA Settings Changer 0"
+Write-Host "0 Sl0ppyR00tNullify Lua Settings  0"
 Write-Host "00000000000000000000000000000000000"
 Write-Host ""
 Write-Host ""
@@ -19,7 +19,7 @@ Get-ItemProperty HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system
 Write-Host ""
 Write-Host ""
 Write-Host "00000000000000000000000000000000000"
-Write-Host "0 Sl0ppyR00t Disable EnableLUA    0"
+Write-Host "0 Sl0ppyR00t Nullify EnableLUA    0"
 Write-Host "00000000000000000000000000000000000"
 sleep 5
 $val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "EnableLUA"
@@ -37,7 +37,7 @@ sleep 3
 Write-Host ""
 Write-Host ""
 Write-Host "0000000000000000000000000000000000000000000000000000"
-Write-Host "0 Sl0ppyR00t Disable ConsentPromptBehaviorAdmin    0"
+Write-Host "0 Sl0ppyR00t Nullify ConsentPromptBehaviorAdmin    0"
 Write-Host "0000000000000000000000000000000000000000000000000000"
 sleep 5
 $val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "ConsentPromptBehaviorAdmin"
@@ -55,7 +55,7 @@ sleep 5
 Write-Host ""
 Write-Host ""
 Write-Host "000000000000000000000000000000000000000000000000000"
-Write-Host "0 Sl0ppyR00t Disable ConsentPromptBehaviorUser    0"
+Write-Host "0 Sl0ppyR00t Nullify ConsentPromptBehaviorUser    0"
 Write-Host "000000000000000000000000000000000000000000000000000"
 sleep 5
 $val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "ConsentPromptBehaviorUser"
@@ -73,7 +73,7 @@ sleep 3
 Write-Host ""
 Write-Host ""
 Write-Host "000000000000000000000000000000000000000000000000000"
-Write-Host "0 Sl0ppyR00t Disable SupportFullTrustStartupTask  0"
+Write-Host "0 Sl0ppyR00t Nullify SupportFullTrustStartupTask  0"
 Write-Host "000000000000000000000000000000000000000000000000000"
 sleep 5
 $val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "SupportFullTrustStartupTasks"
@@ -91,7 +91,7 @@ sleep 3
 Write-Host ""
 Write-Host ""
 Write-Host "0000000000000000000000000000000000000000000000000000000"
-Write-Host "0 Sl0ppyR00t Disable LocalAccountTokenFilterPolicy    0"
+Write-Host "0 Sl0ppyR00t Nullify LocalAccountTokenFilterPolicy    0"
 Write-Host "0000000000000000000000000000000000000000000000000000000"
 sleep 5
 $val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "LocalAccountTokenFilterPolicy"
@@ -109,7 +109,7 @@ sleep 3
 Write-Host ""
 Write-Host ""
 Write-Host "0000000000000000000000000000000000000000000000000000000"
-Write-Host "0 Sl0ppyR00t Disable shutdownwithoutlogon             0"
+Write-Host "0 Sl0ppyR00t Nullify shutdownwithoutlogon             0"
 Write-Host "0000000000000000000000000000000000000000000000000000000"
 sleep 5
 $val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "shutdownwithoutlogon"

@@ -1,4 +1,4 @@
-# Sl0ppyr00t-Nullify-LUA
+Nullify-LUA
 
 Sl0ppyr00t-Nullify-LUA 
 

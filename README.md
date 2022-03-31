@@ -1,7 +1,9 @@
 Nullify-LUA
 
-Nullify-LUA 
+Nullify-LUA settings. 
 
+* remote computer reboot 
+* more info to come 
 
 # Tested on windows 
 * 10

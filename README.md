@@ -12,6 +12,6 @@ Nullify-LUA settings.
 * server2022
 
 # Legal disclaimer
-I am not resposible for u, using it on non authorized systems
+I am not responsible for u, using it on non authorized systems
 
 # ~x0xr00t~

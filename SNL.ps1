@@ -12,13 +12,18 @@ function Nullify-RegistrySetting {
     )
 
     Write-Host "Nullifying $SettingName..."
-    $val = Get-ItemProperty -Path $RegistryPath -Name $SettingName
+    $val = Get-ItemProperty -Path $RegistryPath -Name $SettingName -ErrorAction SilentlyContinue
+    if ($null -eq $val) {
+        Write-Host "Setting $SettingName not found in registry path $RegistryPath."
+        return
+    }
+    
     if ($val.$SettingName -ne 0) {
         Set-ItemProperty -Path $RegistryPath -Name $SettingName -Value 0
     }
     
     Get-ItemProperty -Path $RegistryPath -Name $SettingName
-    Write-Host "Successfull Nullified $SettingName"
+    Write-Host "Successfully nullified $SettingName"
 }
 
 function Display-Header {
@@ -38,19 +43,22 @@ Write-Host ""
 
 $RegistryPath = "HKLM:\Software\Microsoft\Windows\CurrentVersion\policies\system"
 
+# List of registry settings to nullify
+$RegistrySettings = @(
+    "EnableLUA",
+    "ConsentPromptBehaviorAdmin",
+    "ConsentPromptBehaviorUser",
+    "SupportFullTrustStartupTasks",
+    "LocalAccountTokenFilterPolicy",
+    "shutdownwithoutlogon",
+    # Add more registry settings here as needed
+)
+
 # Nullify settings
-Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "EnableLUA"
-Start-Sleep -Seconds 5
-Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "ConsentPromptBehaviorAdmin"
-Start-Sleep -Seconds 5
-Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "ConsentPromptBehaviorUser"
-Start-Sleep -Seconds 5
-Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "SupportFullTrustStartupTasks"
-Start-Sleep -Seconds 5
-Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "LocalAccountTokenFilterPolicy"
-Start-Sleep -Seconds 5
-Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "shutdownwithoutlogon"
-Start-Sleep -Seconds 5
+foreach ($setting in $RegistrySettings) {
+    Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName $setting
+    Start-Sleep -Seconds 5
+}
 
 Display-Header
 Write-Host "Getting LUA Settings"

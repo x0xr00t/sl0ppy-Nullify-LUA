@@ -1,143 +1,62 @@
-#! .ps1
+# Sl0ppyR00tNullify.ps1
 #
 # AUTHOR : P.Hoogeveen
 # AKA    : x0xr00t 
 # BUILD  : 31102021
 # TOOL   : Change LUA
 
+function Nullify-RegistrySetting {
+    param (
+        [string]$RegistryPath,
+        [string]$SettingName
+    )
 
-Write-Host "000000000000slo0ppyr00t000000000000"
-Write-Host "0 Sl0ppyR00tNullify Lua Settings  0"
-Write-Host "000000000000slo0ppyr00t000000000000"
+    Write-Host "Nullifying $SettingName..."
+    $val = Get-ItemProperty -Path $RegistryPath -Name $SettingName
+    if ($val.$SettingName -ne 0) {
+        Set-ItemProperty -Path $RegistryPath -Name $SettingName -Value 0
+    }
+    
+    Get-ItemProperty -Path $RegistryPath -Name $SettingName
+    Write-Host "Successfull Nullified $SettingName"
+}
+
+function Display-Header {
+    Write-Host "000000000000slo0ppyr00t000000000000"
+    Write-Host "0 Sl0ppyR00tNullify Lua Settings  0"
+    Write-Host "000000000000slo0ppyr00t000000000000"
+    Write-Host ""
+    Write-Host ""
+}
+
+Display-Header
+Write-Host "{Sl0ppyR00t} Getting LUA Settings...."
+Start-Sleep -Seconds 4
 Write-Host ""
-Write-Host ""
-Write-Host " {Sl0ppyR00t} Getting LUA Settings...."
-sleep 4
-Write-Host "" 
 Write-Host "{Sl0ppyR00t} Initializing..."
-Write-Host "" 
-Get-ItemProperty HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system
 Write-Host ""
-Write-Host ""
-sleep 4
-Write-Host "000000000000slo0ppyr00t000000000000"
-Write-Host "0 Sl0ppyR00t Nullify EnableLUA    0"
-Write-Host "000000000000slo0ppyr00t000000000000"
-sleep 5
-$val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "EnableLUA"
-if($val.EnableLUA -ne 0)
-{
- set-itemproperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "EnableLUA" -value 0 
-}
-Write-Host ""
-Get-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system -Name EnableLUA
-Write-Host ""
-Write-Host "" 
-sleep 5
-Write-Host "{Sl0ppyR00t}  Successfull Nullified EnableLUA"
-sleep 3
-Write-Host ""
-Write-Host ""
-Write-Host "0000000000000000000slo0ppyr00t000000000000000000000"
-Write-Host "0 Sl0ppyR00t Nullify ConsentPromptBehaviorAdmin    0"
-Write-Host "0000000000000000000slo0ppyr00t000000000000000000000"
-sleep 5
-$val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "ConsentPromptBehaviorAdmin"
-if($val.ConsentPromptBehaviorAdmin -ne 0)
-{
- set-itemproperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "ConsentPromptBehaviorAdmin" -value 0
-}
-Write-Host ""
-Get-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system -Name ConsentPromptBehaviorAdmin
-Write-Host ""
-Write-Host ""
-sleep 5 
-Write-Host "{Sl0ppyR00t}  Successfull Nullified ConsentPromptBehaviorAdmin"
-sleep 5
-Write-Host ""
-Write-Host ""
-Write-Host "0000000000000000000slo0ppyr00t000000000000000000000"
-Write-Host "0 Sl0ppyR00t Nullify ConsentPromptBehaviorUser    0"
-Write-Host "0000000000000000000slo0ppyr00t000000000000000000000"
-sleep 5
-$val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "ConsentPromptBehaviorUser"
-if($val.ConsentPromptBehaviorUser -ne 0)
-{
- set-itemproperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "ConsentPromptBehaviorUser" -value 0
-}
-Write-Host ""
-Get-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system -Name ConsentPromptBehaviorUser
-Write-Host ""
-Write-Host ""
-sleep 5
-Write-Host "{Sl0ppyR00t}  Successfull Nullified ConsentPromptBehaviorUser"
-sleep 3
-Write-Host ""
-Write-Host ""
-Write-Host "0000000000000000000slo0ppyr00t000000000000000000000"
-Write-Host "0 Sl0ppyR00t Nullify SupportFullTrustStartupTask  0"
-Write-Host "0000000000000000000slo0ppyr00t000000000000000000000"
-sleep 5
-$val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "SupportFullTrustStartupTasks"
-if($val.SupportFullTrustStartupTasks -ne 0)
-{
- set-itemproperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "SupportFullTrustStartupTasks" -value 0
-}
-Write-Host ""
-Get-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system -Name SupportFullTrustStartupTask
-Write-Host ""
-Write-Host ""
-sleep 5
-Write-Host "{Sl0ppyR00t}  Successfull Nullified SupportFullTrustStartupTask"
-sleep 3
-Write-Host ""
-Write-Host ""
-Write-Host "000000000000000000000slo0ppyr00t00000000000000000000000"
-Write-Host "0 Sl0ppyR00t Nullify LocalAccountTokenFilterPolicy    0"
-Write-Host "000000000000000000000slo0ppyr00t00000000000000000000000"
-sleep 5
-$val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "LocalAccountTokenFilterPolicy"
-if($val.LocalAccountTokenFilterPolicy -ne 0)
-{
- set-itemproperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "LocalAccountTokenFilterPolicy" -value 0
-}
-Write-Host ""
-Get-ItemProperty HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system.LocalAccountTokenFilterPolicy
-Write-Host ""
-Write-Host ""
-sleep 5
-Write-Host "{Sl0ppyR00t}  Successfull Nullified LocalAccountTokenFilterPolicy"
-sleep 3
-Write-Host ""
-Write-Host ""
-Write-Host "000000000000000000000slo0ppyr00t00000000000000000000000"
-Write-Host "0 Sl0ppyR00t Nullify shutdownwithoutlogon             0"
-Write-Host "000000000000000000000slo0ppyr00t00000000000000000000000"
-sleep 5
-$val = Get-ItemProperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "shutdownwithoutlogon"
-if($val.LocalAccountTokenFilterPolicy -ne 0)
-{
- set-itemproperty -Path hklm:software\microsoft\windows\currentversion\policies\system -Name "shutdownwithoutlogon" -value 0
-}
-Write-Host ""
-Get-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system -Name shutdownwithoutlogon
-Write-Host ""
-Write-Host ""
-sleep 5
-Write-Host "{Sl0ppyR00t}  Successfull Nullified shutdownwithoutlogon"
-sleep 3
 
-Write-Host "000000000slo0ppyr00t0000000000000000"
-Write-Host "0 Sl0ppyR00t Getting LUA Settings 0"
-Write-Host "000000000slo0ppyr00t0000000000000000"
+$RegistryPath = "HKLM:\Software\Microsoft\Windows\CurrentVersion\policies\system"
 
-sleep 10 
-Get-ItemProperty HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system 
-sleep 10
+# Nullify settings
+Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "EnableLUA"
+Start-Sleep -Seconds 5
+Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "ConsentPromptBehaviorAdmin"
+Start-Sleep -Seconds 5
+Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "ConsentPromptBehaviorUser"
+Start-Sleep -Seconds 5
+Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "SupportFullTrustStartupTasks"
+Start-Sleep -Seconds 5
+Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "LocalAccountTokenFilterPolicy"
+Start-Sleep -Seconds 5
+Nullify-RegistrySetting -RegistryPath $RegistryPath -SettingName "shutdownwithoutlogon"
+Start-Sleep -Seconds 5
 
-Write-Host "000000000slo0ppyr00t0000000000000000"
-Write-Host "0 Sl0ppyR00t Restart System Forced 0"
-Write-Host "000000000slo0ppyr00t0000000000000000"
-Write-Host "We gonna Restart the System"
+Display-Header
+Write-Host "Getting LUA Settings"
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\policies\system
+Start-Sleep -Seconds 10
 
-Restart-Computer -ComputerName $env:computername -Force
+Display-Header
+Write-Host "Restarting System (Forced)..."
+Restart-Computer -Force
